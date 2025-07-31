@@ -31,9 +31,9 @@ pipeline {
                 echo '🔄 Checking out CI/CD infrastructure...'
                 script {
                     try {
-                        dir('cicd-config') {
+                dir('cicd-config') {
                             // Try to checkout CI/CD config repository (public repo, no credentials needed)
-                            git branch: "${params.CICD_REPO_BRANCH}",
+                    git branch: "${params.CICD_REPO_BRANCH}",
                                 url: 'https://github.com/mohammadZqili/ci-cd.git'
                         }
                         echo '✅ Successfully checked out CI/CD configuration'

@@ -43,7 +43,8 @@ export class UsersService {
   }
 
   async findByEmail(email: string): Promise<User | undefined> {
-    return this.userRepository.findOne({ where: { email } });
+    const user = await this.userRepository.findOne({ where: { email } });
+    return user || undefined;
   }
 
   async validatePassword(plainPassword: string, hashedPassword: string): Promise<boolean> {
